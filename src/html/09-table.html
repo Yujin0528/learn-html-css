@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>테이블 관련 요소</title>
+    <style>
+      table,
+      th,
+      td {
+        border: 1px solid currentColor;
+        border-spacing: 0;
+        border-collapse: collapse;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>테이블 관련 요소</h1>
+    <h2>테이블 예제</h2>
+    <table>
+        <caption class="sr-only">입문자를 위한 깃과 html&CSS 과정
+            <span>학습시간, 난이도, </span>
+        </caption>
+        <tr>
+          <th scope="row">학습시간</th>
+        <td>09:00~17:00(28시간)</td>
+                <th scope="row">난이도</th>
+        <td>초급</td>
+        </tr>
+        <tr>
+        <th scope="row">교육비 지원</th>
+                    <td>고용보험 비환급</td>
+        </tr>
+        
+        <th scope="row">수료기준</th>
+                 <td>총점 80점 이상시 수료</td>
+        <th scope="row">정원</th>
+                    <td>24명</td>
+        
+        <th scope="row">교육비 지원</th>
+                </tr>
+
+            <td>입문자를 위한 GIT과 HTML&CSS HTML & CSS 웹사이트 개발과 디자인 기초 (35,000원)</td>
+
+        
+    </table>
+
+    <table>
+      <caption>
+        멋쟁이 사자처럼 프론트엔드 스쿨 13기 스탭
+      </caption>
+      <colgroup>
+    <col>
+        <col span="2"/>
+    </col>
+    </colgroup>
+      <thead>
+        <tr>
+          <th scope="col">번호</th>
+          <th scope="col">강사진</th>
+          <th scope="col">멘토진</th>
+          <th scope="col">운영진</th>
+        </tr>
+      </thead>
+      <tfoot>
+        <tr>
+          <td scope="row">인원수</td>
+          <td>2명</td>
+          <td>2명</td>
+          <td>2명</td>
+        </tr>
+      </tfoot>
+      <!-- 실무에서도 thead와 tfoot을 가장 먼저 구조 잡아주고 tbody를 뒤에 써준다. tbody가 길어져서 -->
+      <tbody>
+        <tr>
+          <td scope="row">1</td>
+          <td>슬빛쌤</td>
+          <td>유진혁</td>
+          <td>정재인</td>
+        </tr>
+        <tr>
+          <td scope="row">2</td>
+          <td>용쌤</td>
+          <td>권석기</td>
+          <td>금윤호</td>
+        </tr>
+        <!-- scope 속성은 제목셀에 사용가능, 왼쪽으로 열을 읽어라, 스크린리더를 위해 사용할 수 있다. -->
+         <tr>
+            <td colspan="2" rowspan="2">&nbsp;</td>
+            <td colspan="2">&nbsp;</td>
+         </tr>
+         <!-- colspan으로 Col방향으로 2칸씩 병합했다 -->
+         <tr>
+            <td colspan="2">&nbsp;</td>
+         </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
