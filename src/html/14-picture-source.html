@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>picture, source 요소</title>
+  </head>
+  <body>
+    <!-- srcset, sizes 속성 -->
+    <!-- 내 디바이스 픽셀 밀도에 따라 불러오는 이미지 크기가 다르다  -->
+    <!-- 결과 : 내 디바이스 : 1.7 인데 2배 이미지 불러옴 -->
+    <img
+      srcset="
+        /src/assets/logo/netflix@1x.png 1x,
+        /src/assets/logo/netflix@2x.png 2x
+      "
+      src="/src/assets/logo/netflix@1x.png"
+      alt="넷플릭스"
+    />
+    <br />
+    <!-- 이미지 형식 -->
+    <!-- webp 포맷이 차세대 포맷이라 운영체제에서 웬만하면 webp포맷을 불러온다 -->
+    <!-- 만약 webp 포맷을 지원하지 않는 운영체제에 대비하려면 png포맷 소스를 같이 쓰면 된다. 이때 png파일은 src로, webp파일은 srcset을 사용한다. -->
+    <!-- src가 이미지를 렌더링 해주는 역할이고, srcset안에는 소스를 넣어서 src에서 받아서 렌더링 하는거 -->
+    <img
+      src="/src/assets/logo/netflix@1x.png"
+      srcset="/src/assets/logo/netflix@1x.webp"
+      alt="넷플릭스"
+    />
+
+    <h2>W Descriptor 예시</h2>
+    <!-- 뷰포트 크기가 550까지는 small이미지, 그 이상은 mideum이미지가 보여진다.  -->
+    <picture>
+      <img
+        src="/src/assets/rwd/small-550.jpg"
+        alt=""
+        srcset="
+          /src/assets/rwd/small-550.jpg    550w,
+          /src/assets/rwd/medium-1024.jpg 1024w,
+          /src/assets/rwd/large-1600.jpg  1600w,
+          /src/assets/rwd/normal-1920.jpg 1920w
+        "
+        sizes="(max-width: 768px) 550px, 100vw"
+      />
+      <!-- sizes="(max-width: 768px) 550px, 100%" -->
+       
+
+      <!-- 어떤 기기가 되었든 웹페이지의 전체화면(화면을 꽉채운) 너비의 기준은 100vw가 된다.  -->
+      <!-- 이미지 손실을 줄이기 위해 w discriptor를 사용하여 반응형 이미지를 가져오면 좋다. -->
+    </picture>
+    <hr />
+    <h2>두번째 예제, 소스태그로 따로 넣어보기</h2>
+    <picture>
+      <source
+        srcset="/src/assets/rwd/small-550.jpg 550w"
+        media="(max-width:768px)"
+      />
+      <source
+        srcset="/src/assets/rwd/medium-1024.jpg 1024w"
+        media="(max-width:1024px)"
+      />
+
+      <!-- 768까지 스몰 > 1024까지 미디움 > 그다음부터는 스몰로 보인다. (medium max-width가 1024까지로 되어있어서!) -->
+
+      <img src="/src/assets/rwd/small-550.jpg" alt="" />
+    </picture>
+  </body>
+</html>
