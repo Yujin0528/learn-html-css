@@ -1,0 +1,44 @@
+/*  *선택자는 모든 태그를 말한다. 앞에 body를 붙였다면, body 내 모든 자식 요소를 뜻한다. */
+body * {
+  margin: 0;
+}
+
+/* body에 스타일을 주면, 상속에 의해서 body 내 자녀 요소가 모두 적용된다. */
+body {
+  color: olive;
+  margin: 0;
+}
+
+/* 1em은 16px */
+h1 {
+  font-size: 1em;
+}
+
+/* !important는 우선 순위 규칙을 무시한다.(인라인, id 모두 무시)*/
+/* !important는 남용하면 안된다. */
+.ai {
+  background-color: orange !important;
+}
+
+body h2 + p {
+  background-color: yellow;
+}
+
+body p[class] {
+  background-color: lime;
+}
+
+/* id 선택자도 가급적 스타일링 시 쓰지 않는게 좋다. (우선순위가 너무 높음) */
+
+#ai {
+  background-color: pink;
+}
+
+.ai.copilot {
+  border: 10px dotted blue;
+}
+
+/* CSS에서 부모 요소의 색상을 상속받을 때 사용하는 속성 */
+a {
+  color: inherit;
+}
