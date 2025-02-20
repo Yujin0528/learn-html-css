@@ -1,0 +1,78 @@
+body {
+  background-color: #ffc;
+}
+/* 태그 선택자 */
+
+/* & 중첩 선택자 */
+/* p는 원래 포커싱을 받을 수 없는 객체이지만, 
+tabindex 클래스를 주어서 강제적으로 포커싱을 줄 수 있다.   */
+/*  <p tabindex="0"> */
+p {
+  color: red;
+
+  &:hover {
+    background-color: skyblue;
+  }
+  &:focus {
+    border: 10px solid red;
+  }
+}
+
+/* 클래스 선택자 */
+.like {
+  color: blue;
+}
+/* 아이디 선택자 */
+#lion {
+  color: green;
+}
+/* 속성 선택자 */
+[title='선택자를 정복하자!'] {
+  color: purple;
+}
+
+/* 속성선택자 ^= https로 시작하는 규칙 */
+a[href^="https://"]
+{
+  text-decoration: none;
+}
+/* 속성선택자 $= PDF로 끝나는 규칙 */
+a[href$='pdf'] {
+  text-decoration: none;
+}
+
+/* 가상 클래스 선택자 */
+a:link {
+  color: black;
+}
+
+/* 한번이라도 방문한 적이 있다면 상태 바꾸기 */
+a:visited {
+  color: olive;
+}
+
+/* 마우스를 올렸을때 상태 바꾸기 */
+a:hover {
+  color: salmon;
+}
+
+/* tap키로 키보드 포커스가 되었을 때 상태 바꾸기 */
+a:focus {
+  color: aqua;
+}
+
+/* active 할때 상태 바꾸기 */
+a:active {
+  background-color: #fff;
+}
+
+/* 가상 요소 선택자 */
+
+/* 가상 요소 중 비포,애프터 요소는 content를 반드시 가져야한다. */
+h1::before {
+  content: '멋사';
+}
+
+h1::after {
+  content: '13기';
+}
