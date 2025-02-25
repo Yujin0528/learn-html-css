@@ -1,0 +1,16 @@
+.likelion {
+  .likelion__list {
+    list-style: none;
+
+    /* & -> 자신의 부모 이름을 연결 */
+    &:hover {
+      background-color: yellow;
+    }
+  }
+  .likelion__item {
+    color: green;
+  }
+  .likelion__link {
+    color: inherit;
+  }
+}

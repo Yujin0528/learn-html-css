@@ -1,0 +1,67 @@
+@import url(/src/common/modern-reset.css);
+
+body {
+  font-family: SUIT, sans-serif;
+}
+
+.card {
+  /* BFC - overflow:hidden, display:flow-root, float:left:, position:absolute */
+  /* background-color: pink; */
+  border: 1px solid #aaa;
+  /* rem 단위는 root 기준이다. */
+  border-radius: 0.5rem;
+  /* em 단위는 현재 글자크기 기준이다. (font-size를 10px 로 지정하면 2em 은 20px 이다.) */
+  /* 현재는 폰트 사이즈가 따로 없으니 루트 기준 16 * 2 = 32px */
+  margin: 2em;
+  padding: 2em;
+
+  &.good-partner {
+    display: flow-root;
+  }
+
+  /* 제목 */
+  .subject {
+    /* background-color: skyblue; */
+    font-size: 1.5rem;
+    /* bold -> 700, medium-> 400 */
+    font-weight: 600;
+
+    span {
+      /* 상속받은 글자크기의 절반 */
+      vertical-align: top;
+
+      &[lang='en'] {
+        font-size: 0.5em;
+        position: relative;
+        top: 3px;
+      }
+    }
+  }
+
+  /* 이미지 */
+  .thumbnail {
+    --radius: 50%;
+
+    border: 1px solid #ccc;
+    float: left;
+    margin: 1em;
+    padding: 0.625em;
+    border-radius: var(--radius);
+    width: 100px;
+    shape-outside: circle(50%);
+
+    img {
+      border-radius: inherit;
+      border-radius: var(--radius);
+      width: 100%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      object-position: 0 -20px;
+    }
+  }
+
+  /* 내용 */
+  .content {
+    margin-top: 0.625rem;
+  }
+}

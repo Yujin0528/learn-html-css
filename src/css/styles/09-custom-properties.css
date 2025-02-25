@@ -1,0 +1,143 @@
+/* 전역 변수 정의 */
+@property --text-color {
+  syntax: '<color>';
+  /* 상속여부 false or true */
+  inherits: true;
+  /* 초기값 */
+  initial-value: orange;
+}
+
+:root {
+  /* 색상 팔레트 */
+  --white: #fff;
+  --balck: #000;
+  --red: #f00;
+  --green: #0f0;
+  --blue: #00f;
+  --orange: orange;
+  --yellow: yellow;
+  --light-blue: aqua;
+
+  /* 주요 색상 */
+  --primary-color: var(--orange);
+  --secondary-color: var(--light-blue);
+  --accent-color: var(--yellow);
+  --border-color: var(--red);
+
+  /* size */
+  --default: 1rem;
+  --small: 0.75rem;
+  --medium: 0.875rem;
+  --large: 1.125rem;
+}
+
+/* @property 규칙에서 선언한 기본값을 불러온다 */
+.container {
+  color: var(--text-color);
+  .parent {
+    --text-color: blue;
+  }
+  .child {
+    color: var(--text-color);
+  }
+}
+
+/* 상속 */
+.lion {
+  color: red;
+  border: 1px solid green;
+
+  .parent {
+    border: inherit;
+
+    .child {
+      color: black;
+      border: inherit;
+      border-color: blue;
+    }
+  }
+}
+
+.text-card-1 {
+  /* 지역변수 정의 */
+  --bg-color: var(--green);
+  --border-color: var(--red);
+
+  h1 {
+    background-color: var(--bg-color);
+  }
+
+  p {
+    border-width: 10px;
+    border-style: solid;
+    border-color: var(--border-color);
+  }
+}
+.text-card-2 {
+  /* 지역변수 정의 */
+  --bg-color: var(--blue);
+  --border-color: var(--green);
+
+  h1 {
+    background-color: var(--bg-color);
+  }
+
+  p {
+    border-width: 10px;
+    border-style: solid;
+    border-color: var(--border-color);
+  }
+}
+
+.wrapper {
+  button.open {
+    --font-size: var(--small);
+    --bg-color: var(--green);
+    --text-color: var(--red);
+
+    font-size: var(--font-size, 1rem);
+    background-color: var(--bg-color, #fff);
+    color: var(--primary-color, #000);
+  }
+
+  button.close {
+    --font-size: var(--default);
+
+    font-size: var(--font-size);
+  }
+  button.popup {
+    --font-size: var(--large);
+
+    font-size: var(--font-size);
+  }
+  button.info {
+    --font-size: var(--medium);
+
+    font-size: var(--font-size);
+  }
+  button.info {
+    font-size: var(--medium);
+  }
+}
+
+/* 위에 선언된 가상 선택자보다 아래에 있기 때문에 우선된다. */
+:root {
+  --primary-color: #dbca34;
+  --secondary-color: #2ecc71;
+}
+
+/* 잘못된 사용된 예제 */
+/* h1 {
+  background-color: --secondary-color;
+} */
+
+/* 잘 사용된 예제 */
+/* h1 {
+  background-color: var(--secondary-color);
+} */
+
+/* plan B 포함*/
+/* --secondary-color 속성이 없을때 대안으로 뒤 값이 적용되도록 설정 */
+/* h1 {
+  background-color: var(--secondary-color, #2ecc71);
+} */

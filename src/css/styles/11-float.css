@@ -1,0 +1,44 @@
+@import url(/src/common/theme.css);
+
+/* css의 display 속성을 특정 영역 보이지 않도록 설정 */
+/* html 속성으로 제어하려면 컨테이너 요소에 hidden 속성을 사용하면 된다. */
+/* .mom-friend-son {
+  display: none;
+} */
+
+/* float 사용하기 */
+.card {
+  background: var(--pastel-lilac);
+  border: 1px solid black;
+
+  .thumbnail {
+    background: var(--pastel-yellow);
+    /* float으로 인해 부모 요소인 thumbnail이 인식하지 못하는 높이를 포함하도록 BFC를 생성 */
+    /* overflow: hidden; */
+    /* display: flow-root; */
+    /* width:100% */
+
+    /* float 요소의 부모에 직접 높이를 지정해서 일반 흐름을 벗어난 이미지가 다음 콘텐츠 영역 레이아웃에 영향을 주는 것을 피할 수 있다. */
+    /* height: 100px; */
+  }
+
+  img {
+    float: left;
+    width: 100px;
+    vertical-align: middle;
+    /* vertical-align은 요소가 인라인이나, 인라인 블록 일때 사용 가능하다 */
+    /* vertical-align: top; 이미지 아래쪽 여백을 없애기 위한 트릭 */
+    /* display: block; 이미지 아래쪽 여백을 없애기 위한 트릭 */
+  }
+
+  .subject {
+    background: var(--pastel-blue);
+  }
+
+  .content {
+    /* float 효과를 해제하기 위해 clear 속성을 사용할 수 있다. */
+    /* clear는 inline요소에는 적용할 수 없다. block의 성격을 가지고 있어야 한다. */
+    clear: both;
+    background: var(--pastel-orange);
+  }
+}
