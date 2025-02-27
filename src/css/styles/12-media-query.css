@@ -1,0 +1,27 @@
+@import url('/src/common/best-reset.css');
+@import url('/src/common/a11y.css');
+
+body {
+  background: yellow;
+  font-size: clamp(0.75rem, 2vw + 0.75rem, 3rem);
+
+  /* 현재 뷰포트의 최소 너비가 600px 이 넘어가면 body 색깔을 바꿔줘 */
+  @media (min-width: 600px) {
+    background: pink;
+    font-size: 2rem;
+  }
+}
+
+/* 현재 뷰포트의 최소 너비가 1200px 이 넘어가면 body 색깔을 바꿔줘 */
+@media (min-width: 1000px) {
+  body {
+    background: lime;
+    font-size: 2.5rem;
+  }
+
+  /* 가로보기에서 적용될 배경색*/
+  /* @media (orientation: landscape) {
+    body{
+        background-color: orange;
+    } */
+}

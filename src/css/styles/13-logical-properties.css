@@ -1,0 +1,25 @@
+.case-01 {
+  writing-mode: vertical-rl;
+  /* currentColor :  현재 요소의 color 속성 값을 참조하여 해당 색상을 다른 속성에 지정*/
+  border: 1px solid currentColor;
+  color: green;
+
+    float: inline-start;
+
+  /* 가로 크기를 width 속성이 아닌 논리 속성으로 지정 */
+  inline-size: 400px;
+  /* 세로 크기를 width 속성이 아닌 논리 속성으로 지정 */
+  block-size: 100px;
+  /* 넘치는 면적은 hidden시키기 */
+  /* overflow: hidden; */
+  /* 넘치는 면적은 auto로 scroll생기게 하기 */
+  overflow: auto;
+  /* padding-left, padding-right를 논리 속성으로 지정 */
+  padding-inline-start: 20px;
+  padding-inline-end: 50px;
+  /* 패딩-인라인은 x축으로 읽고 패딩-블록은 y축으로 적용 */
+  padding-inline: 20px;
+  padding-block: 10px;
+
+  
+}

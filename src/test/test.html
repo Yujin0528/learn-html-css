@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>닫기 버튼이 있는 스낵바</title>
+  <link rel="stylesheet" href="https://uicdn.toast.com/tui.toast/latest/toastui-toast.min.css">
+  <style>
+    .custom-toast {
+      background-color: #333;
+      color: #fff;
+      padding: 16px;
+      border-radius: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .close-btn {
+      background: none;
+      border: none;
+      color: #ff6b6b;
+      font-weight: bold;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+  <button onclick="showSnackBar()">스낵바 보여주기</button>
+
+  <script src="https://uicdn.toast.com/tui.toast/latest/toastui-toast.min.js"></script>
+  <script>
+    function showSnackBar() {
+      const toast = document.createElement('div');
+      toast.className = 'custom-toast';
+      toast.innerHTML = `
+        <span>이것은 스낵바 메시지입니다!</span>
+        <button class="close-btn" onclick="closeSnackBar(this)">닫기</button>
+      `;
+
+      document.body.appendChild(toast);
+
+      // 3초 뒤 자동으로 사라짐
+      setTimeout(() => {
+        if (document.body.contains(toast)) {
+          toast.remove();
+        }
+      }, 3000);
+    }
+
+    function closeSnackBar(button) {
+      const toast = button.parentElement;
+      toast.remove(); // 즉시 스낵바 제거
+    }
+  </script>
+</body>
+</html>

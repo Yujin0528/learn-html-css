@@ -1,0 +1,18 @@
+@import url(/src/common/mini-reset.css);
+
+* {
+  margin: 0;
+  font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+  font-size: 0;
+  text-decoration: none;
+  color: #24388d;
+}
+
+.navigation {
+  background-color: aquamarine;
+
+  .logo {
+    width: 140px;
+    height: 14px;
+  }
+}
