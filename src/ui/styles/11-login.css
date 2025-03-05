@@ -1,0 +1,72 @@
+@import '/src/common/modern-reset.css';
+@import '/src/common/login-theme.css';
+@import '/src/common/a11y.css';
+@import '/src/common/base.css';
+@import '/src/ui/components/logo/logo.css';
+@import '/src/ui/components/input/input.css';
+@import '/src/ui/components/checkbox/checkbox.css';
+@import '/src/ui/components/text-link/text-link.css';
+@import '/src/ui/components/switch/switch.css';
+@import '/src/ui/components/button/button.css';
+
+/* 컨테이너 */
+.container {
+  padding: 0 var(--spacing-4);
+}
+
+/* 헤더 */
+.login-header {
+  padding: 4.375rem 0 2.8125rem;
+
+  @media (min-width: 768px) {
+    padding: 6.25rem 0 3.125rem;
+  }
+
+  .logo {
+    margin: 0 auto;
+
+    /* 모바일에서 로고가 조금 작아보이는 효과 */
+    @media (max-width: 48rem) {
+      width: 11.25rem;
+      inline-size: 11.25rem;
+    }
+  }
+}
+
+/* 로그인 폼 */
+.login-form {
+  display: flex;
+  flex-flow: column nowrap;
+  row-gap: var(--spacing-5);
+  margin-left: 20px;
+  margin-right: 20px;
+
+  fieldset {
+    display: contents;
+  }
+
+  .checkbox-wrapper {
+    order: 1;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+
+    .text-link {
+      /* 콘텐츠 안에서 콘텐츠를 뺀 남는 여백을 왼쪽방향에만 나눠가지기를 원해 */
+      margin-left: auto;
+      margin-inline-start: auto;
+    }
+  }
+
+  .button {
+    margin-top: var(--spacing-3);
+    margin-block-start: var(--spacing-3);
+    width: 100%;
+    height: 3.75rem;
+    block-size: 3.75rem;
+
+    &:focus-visible {
+      box-shadow: 0 0 0 1px var(--red-500);
+    }
+  }
+}

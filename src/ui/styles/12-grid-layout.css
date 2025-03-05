@@ -1,41 +1,44 @@
 @import '/src/common/modern-reset.css';
 @import '/src/common/theme.css';
 
-/* 플렉스를 활용한 반응형 레이아웃 */
-/* 플렉스 컨테이너 */
 .container {
-  @media (min-width: 768px) {
-    display: flex;
-    flex-flow: row wrap;
+  display: grid;
+  padding: 20px;
 
-    .box,
-    .wrapper {
-      display: contents;
-    }
+  /* grid item은 order 속성을 활용하여 배치 순서를 변경할 수 있다. */
+  /* .navigation{
+    order: 1;
+  } */
+
+  /* 모바일사이즈 반응형 */
+  @media (min-width: 768px) {
+    /* 그리드 열을 12로 나눈다. */
+    grid-template-columns: repeat(12, 1fr);
+    max-width: 800px;
+    max-inline-size: 800px;
+    margin: auto;
 
     .header,
     .navigation,
     .footer {
-      width: 100%;
-      inline-size: 100%;
+      /* -1은 맨 마지막 열번호를 뜻한다. 맨끝 */
+      grid-column: 1/ -1;
     }
 
     .content,
     .sidebar {
-      width: 50%;
-      inline-size: 50%;
-      height: 65vh;
-      block-size: 65vh;
+      grid-column: span 6;
     }
   }
 
+  /* 웹사이즈 반응형 */
   @media (min-width: 1024px) {
+    max-width: 1280px;
+    max-inline-size: 1280px;
+
     .navigation,
     .sidebar {
-      width: 25%;
-      inline-size: 25%;
-      height: 65vh;
-      block-size: 65vh;
+      grid-column: span 3;
     }
   }
 }
