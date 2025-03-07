@@ -1,0 +1,65 @@
+@import '/src/common/modern-reset.css';
+@import '/src/common/theme.css';
+@import '/src/common/a11y.css';
+@import '/src/common/base.css';
+
+.container {
+  background: var(--pastel-blue);
+  padding: 1em;
+
+  .case {
+    margin-block: 20px;
+  }
+
+  /* case: column width */
+  .case-01 {
+    column-width: 15rem;
+    column-rule: 4px solid black;
+    column-gap: 2rem;
+  }
+
+  /* case : column count */
+  .case-02 {
+    column-count: 4;
+    column-rule: 4px dotted black;
+
+    /* column-span:all을 지정하기 위해서는 블록요소여야만한다. */
+    span {
+      display: block;
+      background: var(--pastel-lemon);
+      padding: 0.5em;
+      column-span: all;
+    }
+  }
+
+  /* case : columns 단축속성에 column-width 선언 */
+  /* columns에 두개의 값을 주면 하나만 동작한다. */
+  .case-03 {
+    columns: 15rem;
+    column-rule: 4px double black;
+  }
+
+  /* case : columns 단축속성에 column-count 선언 */
+  /* columns에 두개의 값을 주면 하나만 동작한다. */
+  .case-04 {
+    column-fill: auto;
+    columns: 2;
+    height: 100px;
+  }
+
+  .case-05 {
+    column-fill: balance;
+    columns: 2;
+  }
+}
+
+.wrapper{
+    background-color: var(--pastel-coral);
+    padding: 1em;
+
+    columns: 4;
+
+    .case{
+        break-after: always;
+    }
+}

@@ -1,0 +1,66 @@
+/* Fade animation */
+@keyframes fade {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Shrink Animation */
+@keyframes shrink {
+  0%,
+  100% {
+    width: 100%;
+  }
+  50% {
+    width: 50%;
+  }
+}
+
+/* Bounce Animation*/
+@keyframes bounce {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -30px;
+  }
+}
+
+/* Shake Animation*/
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-15);
+  }
+}
+
+/* Spin Animation */
+@keyframes spin {
+  0% {
+    rotate: 0;
+  }
+  100% {
+    rotate: 360deg;
+  }
+}
+
+/* Pulse Animation*/
+@keyframes pulse {
+  0%,
+  100% {
+    scale: 1 1;
+  }
+  50% {
+    scale: 1.1 1.1;
+  }
+}
