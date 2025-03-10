@@ -1,0 +1,52 @@
+@import '/src/common/modern-reset.css';
+@import '/src/common/theme.css';
+@import '/src/common/a11y.css';
+@import '/src/common/base.css';
+
+/* 오른쪽에 쓸 수록 우선순위가 높기 때문에 먼저 적용된다. */
+  /* 근데 !important는 역순 순서이다. */
+@layer module, state;
+
+/* 2순위 */
+/* !important 3순위 */
+@layer state {
+  .alert {
+    background-color: purple !important;
+  }
+  p {
+    border: medium solid limegreen;
+    padding: 2em;
+  }
+}
+
+/* 1순위 */
+/* !important 4순위 -> 우선적용*/
+@layer module {
+  .alert {
+    border: medium solid violet;
+    background: green;
+    color: white;
+  }
+  p {
+    padding: 1em;
+  }
+  /* 점수가 높아도 레이어 순서가 낮으면 못이김. */
+  p.alert {
+    background: red !important;
+  }
+}
+
+/* 3순위 */
+/* !important 2순위 */
+/* 이름없는 unnamed layer는 일반적인 layer보다 우선순위가 높아진다. */
+@layer {
+  p.alert {
+    background: blue !important;
+  }
+}
+
+/* 4순위 -> 우선적용 */
+/* !important 1순위 */
+p.alert{
+    background: gray !important;
+}
